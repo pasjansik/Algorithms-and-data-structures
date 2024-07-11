@@ -28,15 +28,9 @@ int32_t main()
     {
         int a, b; cin >> a >> b;
         point c; c.x = a; c.y = b;
-        if(b < nin)
-        {
-            nin = b;
-            p0 = c;
-        }
         v.push_back(c);
     }
 
-    sort(v.begin(), v.end(), cmp);
     p0 = v[0];
  
     for(int i = 2; i < v.size(); i++)
@@ -48,5 +42,8 @@ int32_t main()
     }
 
     res = abs(res);
-    cout << res; //we are printing 2*area
+    if(res % 2 == 0)
+        cout << res / 2 << ".0";
+    else
+        cout << res / 2 << ".5";
 }
