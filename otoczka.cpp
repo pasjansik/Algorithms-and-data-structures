@@ -38,9 +38,10 @@ int32_t main()
     //algorytm otoczki
     for(int j = 0; j < 2; j++) //najpierw gorna potem dolna czesc otoczki
     {
+        int s = hull.size();
         for(int i = 0; i < n; i++)
         {
-            while(hull.size() >= 2 && cross(hull[hull.size() - 2], hull.back(), v[i]) > 0) //rozpatrujemy dwa ostatnie elementy i nasz ktory dodajemy i jak jest zle to wywalamy
+            while(hull.size() >= 2 + s && cross(hull[hull.size() - 2], hull.back(), v[i]) > 0) //rozpatrujemy dwa ostatnie elementy i nasz ktory dodajemy i jak jest zle to wywalamy
                 hull.pop_back();
             hull.push_back(v[i]);
         }
